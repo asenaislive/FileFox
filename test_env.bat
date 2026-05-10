@@ -4,13 +4,13 @@ setlocal enabledelayedexpansion
 :: ======================================================
 ::   Test Environment Creator
 ::   Run this FIRST to set up dummy files for testing.
-::   Then run file_organizer.bat on the same folder.
+::   Then run filefox.bat on the same folder.
 :: ======================================================
 
 ::   Edit the TEST_DIR below value to create dummy test files in your desired place
-:: 	 Enter the same path in verify_results.bat
 
-set "TEST_DIR=D:\TestFile"
+
+set "TEST_DIR=D:\TestFolder"
 
 echo.
 echo  Creating test environment at: %TEST_DIR%
@@ -104,10 +104,10 @@ echo   Files   : See above
 echo.
 echo   WHAT TO DO NEXT:
 echo   1. Press any key to add more dummy files for testing or Ctrl + C to stop
-echo   2. Run file_organizer.bat
-echo   3. Enter path : D:\TestFile
+echo   2. Run filefox.bat
+echo   3. Enter path : D:\TestFolder
 echo   4. Try [P] first (preview), then [R] (real run)
-echo   5. Check D:\TestFile\changelog.txt for results
+echo   5. Check D:\TestFolder\changelog.txt for results
 echo   6. Try undo at the end to verify reversal
 echo  ==========================================
 echo.
