@@ -30,7 +30,7 @@ Think of it as a very fast, very obedient assistant who never complains about ho
 
 ## ✨ What's New in v1.1
 
-v1.1 is a big one. The focus was **safety first** — so you can run FileFox without fear.
+The focus was **safety first**
 
 | | Feature | What it means for you |
 |---|---|---|
@@ -116,13 +116,14 @@ There's a ready-made test kit in the `/tests` folder of this repo:
 
 | File | What it does |
 |---|---|
-| `create_test_env.bat` | Creates a `C:\FileFoxTest\` folder with 46 dummy files across 8 test batches |
+| `test_env.bat` | Creates a `D:\TestFolder\` folder with 46 dummy files across 8 test batches |
 
 **How to use it:**
 
 ```
 1. Run test_env.bat              → sets up the dummy folder
-2. Run file_organizer.bat        → point it at the the directory that you entered in test_env.bat (The default is D:\TestFile)
+2. Run filefox.bat               → point it at the the directory you want to arrange.
+                                 → If you're testing with test_env, enter the path that you entered in test_env.bat (The default is D:\TestFolder)
 ```
 
 It covers normal files, uppercase extensions, collisions, duplicates, edge cases, and files that must NOT move (like the changelog and undo script). Great way to get comfortable before running it on your real files.
