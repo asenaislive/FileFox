@@ -2,13 +2,13 @@
 setlocal enabledelayedexpansion
 
 :: ======================================================
-::   ASENA'S FILE ORGANIZER v1.1
+::   ASENA'S FILEFOX v1.1
 ::   Features: File sorting, Duplicate detection,
 ::             Dry-run mode, Undo last run,
 ::             Collision-safe renaming, Change logs
 :: ======================================================
 
-title Asena's File Organizer v1.1
+title Asena's FileFox v1.1
 
 echo.
 echo    ###      ######  ######## ##    ##    ###
@@ -19,7 +19,7 @@ echo #########       ##  ##       ##  #### #########
 echo ##     ## ##    ##  ##       ##   ### ##     ##
 echo ##     ##  ######   ######## ##    ## ##     ##
 echo.
-echo            FILE ORGANIZER
+echo            FILEFOX FILE ORGANIZER
 echo.
 
 :: ======================================================
@@ -90,9 +90,9 @@ if "!DRY_RUN!"=="0" (
 :: ======================================================
 call :write_log "=========================================================="
 if "!DRY_RUN!"=="1" (
-    call :write_log "        ASENA'S FILE ORGANIZER v1.1  [PREVIEW MODE]    "
+    call :write_log "        ASENA'S FILEFOX v1.1  [PREVIEW MODE]    "
 ) else (
-    call :write_log "        ASENA'S FILE ORGANIZER                    "
+    call :write_log "        ASENA'S FILEFOX                    "
 )
 call :write_log "        Started : %date%  %time%            "
 call :write_log "        Source  : %SOURCE%"
