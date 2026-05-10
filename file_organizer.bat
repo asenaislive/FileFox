@@ -19,11 +19,11 @@ echo #########       ##  ##       ##  #### #########
 echo ##     ## ##    ##  ##       ##   ### ##     ##
 echo ##     ##  ######   ######## ##    ## ##     ##
 echo.
-echo            FILE ORGANIZER  v1.1
+echo            FILE ORGANIZER
 echo.
 
 :: ======================================================
-:: STEP 1 — Get source path from user
+:: STEP 1 - Get source path from user
 :: ======================================================
 set "SOURCE="
 set /p "SOURCE=  Enter folder path to organise (e.g. D:\MyFiles): "
@@ -37,12 +37,12 @@ if not exist "%SOURCE%" (
 )
 
 :: ======================================================
-:: STEP 2 — Dry-run or real run?
+:: STEP 2 - Dry-run or real run?
 :: ======================================================
 set "DRY_RUN=0"
 :ask_mode
 set "MODE_INPUT="
-set /p "MODE_INPUT=  Run mode — [P] Preview (dry-run)  /  [R] Real run: "
+set /p "MODE_INPUT=  Run mode - [P] Preview (dry-run)  /  [R] Real run: "
 if /i "!MODE_INPUT!"=="P" set "DRY_RUN=1"
 if /i "!MODE_INPUT!"=="R" set "DRY_RUN=0"
 if not "!MODE_INPUT!"=="P" if not "!MODE_INPUT!"=="p" if not "!MODE_INPUT!"=="R" if not "!MODE_INPUT!"=="r" (
@@ -88,19 +88,19 @@ if "!DRY_RUN!"=="0" (
 :: ======================================================
 :: Write changelog header (box style)
 :: ======================================================
-call :write_log "╔══════════════════════════════════════════════════════════╗"
+call :write_log "=========================================================="
 if "!DRY_RUN!"=="1" (
-    call :write_log "║        ASENA'S FILE ORGANIZER v1.1  [PREVIEW MODE]      ║"
+    call :write_log "        ASENA'S FILE ORGANIZER v1.1  [PREVIEW MODE]    "
 ) else (
-    call :write_log "║        ASENA'S FILE ORGANIZER v1.1                      ║"
+    call :write_log "        ASENA'S FILE ORGANIZER                    "
 )
-call :write_log "║        Started : %date%  %time%              ║"
-call :write_log "║        Source  : %SOURCE%"
-call :write_log "╚══════════════════════════════════════════════════════════╝"
+call :write_log "        Started : %date%  %time%            "
+call :write_log "        Source  : %SOURCE%"
+call :write_log "=========================================================="
 call :write_log ""
 
 :: ======================================================
-:: Main file loop — root-level files only
+:: Main file loop - root-level files only
 :: ======================================================
 for %%f in ("%SOURCE%\*.*") do call :processFile "%%f" "%%~nxf" "%%~xf" "%%~zf" "%%~ff"
 
@@ -108,14 +108,14 @@ for %%f in ("%SOURCE%\*.*") do call :processFile "%%f" "%%~nxf" "%%~xf" "%%~zf" 
 :: Write changelog footer (summary)
 :: ======================================================
 call :write_log ""
-call :write_log "──────────────────────────────────────────────────────────"
+call :write_log "----------------------------------------------------------"
 if "!DRY_RUN!"=="1" (
     call :write_log "  PREVIEW  Would move: !COUNT_PREVIEW! files"
 ) else (
     call :write_log "  SUMMARY  Moved: !COUNT_MOVED!   Renamed: !COUNT_RENAMED!   Duplicates: !COUNT_DUPES!   Failed: !COUNT_FAILED!"
 )
 call :write_log "  Finished : %date%  %time%"
-call :write_log "──────────────────────────────────────────────────────────"
+call :write_log "----------------------------------------------------------"
 
 :: Finalise undo script footer
 if "!DRY_RUN!"=="0" (
@@ -128,9 +128,9 @@ if "!DRY_RUN!"=="0" (
 :: Print summary to screen
 :: ======================================================
 echo.
-echo  ══════════════════════════════════════════
+echo  ==========================================
 if "!DRY_RUN!"=="1" (
-    echo   PREVIEW complete — !COUNT_PREVIEW! files would be moved.
+    echo   PREVIEW complete - !COUNT_PREVIEW! files would be moved.
     echo   No files were touched. Check changelog.txt for details.
 ) else (
     echo   Run complete!
@@ -141,11 +141,11 @@ if "!DRY_RUN!"=="1" (
     echo.
     echo   Log saved at : %LOG%
 )
-echo  ══════════════════════════════════════════
+echo  ==========================================
 echo.
 
 :: ======================================================
-:: STEP 3 — Undo prompt (real run only)
+:: STEP 3 - Undo prompt (real run only)
 :: ======================================================
 if "!DRY_RUN!"=="0" (
     set "UNDO_INPUT="
@@ -190,7 +190,7 @@ exit /b
     if /i "%FILE%"=="%UNDO_NAME%"        exit /b
 
     :: -------------------------------------------------------
-    :: Duplicate check — filename already exists in Duplicates\
+    :: Duplicate check - filename already exists in Duplicates\
     :: -------------------------------------------------------
     if exist "%SOURCE%\Duplicates\%FILE%" (
         if "!DRY_RUN!"=="1" (
@@ -424,7 +424,7 @@ exit /b
     if /i "%EXT%"==".swp"        set "DEST=TempCleanup"
 
     :: -------------------------------------------------------
-    :: Unrecognised — sort by size
+    :: Unrecognised - sort by size
     :: -------------------------------------------------------
     if not defined DEST call :sortBySize "%SIZE%"
 
