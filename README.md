@@ -91,9 +91,9 @@ Every run writes a clean, readable log to `changelog.txt` in your sorted folder.
 
 ```
 ╔══════════════════════════════════════════════════════════╗
-║        FILEFOX v1.1                                      ║
-║        Started : 10/05/2026  14:32:01                    ║
-║        Source  : D:\Downloads                            ║
+║        FILEFOX v1.1                                                ║
+║        Started : 10/05/2026  14:32:01                              ║
+║        Source  : D:\Downloads                                      ║
 ╚══════════════════════════════════════════════════════════╝
 
   [MOVED]      vacation.jpg         ->  Images
